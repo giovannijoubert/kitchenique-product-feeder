@@ -1,8 +1,8 @@
 import getProducts from '../action/getProducts';
 import { Router } from 'express';
 
-const productsRouter = Router();
+const iqRouter = Router();
 
-productsRouter.get('/getProducts', (req, res) => getProducts(req, res));
+iqRouter.get('/getProducts', (req, res) => getProducts(req, res));
 
-export default productsRouter;
+export default iqRouter;

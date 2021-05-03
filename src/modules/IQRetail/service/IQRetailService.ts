@@ -1,5 +1,5 @@
 import csvParser from 'csvtojson';
-import Product from '../../product/model/productModel';
+import Product from '../model/productModel';
 import process from 'process';
 
 export default class IQRetail {
@@ -7,9 +7,10 @@ export default class IQRetail {
 	}
 
 	// parse each stock item and convert to a Product
-	async parseStockFile(fileName) {
+	async parseStockFile(csvFilePath) {
 		// parse the IQStockFile to JSON
-		const csvJsonArray = await csvParser({ delimiter: '|'}).fromFile(fileName);
+		const csvJsonArray = await csvParser({ delimiter: '|'}).fromFile(csvFilePath);
+
 
 		// conform the IQStockFile line to fit the Product Model
 		let products = [];
