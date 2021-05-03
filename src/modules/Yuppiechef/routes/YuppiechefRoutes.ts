@@ -1,8 +1,11 @@
-import getProducts from '../action/getProducts';
+import getProductDataFile from '../action/getProductDataFile';
+import getProductPriceFile from '../action/getProductPriceFile';
+
 import { Router } from 'express';
 
 const yuppieRouter = Router();
 
-yuppieRouter.get('/getProducts', (req, res) => getProducts(req, res));
+yuppieRouter.get('/getProductDataFile', (req, res) => getProductDataFile(req, res));
+yuppieRouter.get('/getProductPriceFile', (req, res) => getProductPriceFile(req, res));
 
 export default yuppieRouter;

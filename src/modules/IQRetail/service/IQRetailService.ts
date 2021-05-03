@@ -11,7 +11,6 @@ export default class IQRetail {
 		// parse the IQStockFile to JSON
 		const csvJsonArray = await csvParser({ delimiter: '|'}).fromFile(csvFilePath);
 
-
 		// conform the IQStockFile line to fit the Product Model
 		let products = [];
 
@@ -19,7 +18,6 @@ export default class IQRetail {
 			if(item.webItem == 'true') {
 				let product = new Product();
 				product.fill(item);
-				
 				products.push(product);
 			}
 		});
