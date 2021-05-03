@@ -1,0 +1,33 @@
+service: kitchenique-product-feeder
+
+useDotenv: true
+
+provider:
+  name: aws
+  stage: prod
+  runtime: nodejs12.x
+  region: us-east-1
+  memorySize: 128
+  lambdaHashingVersion: 20201221
+  environment:
+    NODE_ENV: production
+    IQ_FTP_HOST: kitchenique.co.za
+    IQ_FTP_USER: iq@kitchenique.co.za
+    IQ_FTP_PASS: ${env:IQ_FTP_PASS} 
+
+functions:
+  app:
+    timeout: 30
+    handler: dist/app.handler
+    events:
+      - http:
+          path: /
+          method: ANY
+          cors: true
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true
+
+plugins:
+  - serverless-offline

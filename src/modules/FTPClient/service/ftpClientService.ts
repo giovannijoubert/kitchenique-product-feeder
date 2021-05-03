@@ -1,4 +1,11 @@
-class FTPClient {
+import fs from 'fs';
+import process from 'process';
+
+export default class FTPClient {
+    public ftpHost: string;
+    protected ftpUser: string;
+    protected ftpPass: string;
+    
 	constructor() {
 		this.ftpHost = process.env.IQ_FTP_HOST;
 		this.ftpUser = process.env.IQ_FTP_USER;
@@ -8,6 +15,7 @@ class FTPClient {
 	async download(fileName, timestamped = true) {
 		const ftp = require('basic-ftp');
 		const client = new ftp.Client();
+
 		try {
 			await client.access({
 				host: this.ftpHost,
@@ -15,12 +23,14 @@ class FTPClient {
 				password: this.ftpPass,
 			});
 			var downloadName;
+
 			if(timestamped)
-				downloadName = './' + process.env.DOWNLOAD_DIR + '/' + fileName.replace('.csv', '-' + Date.now() + '.csv');
+				downloadName = '/tmp/' + fileName.replace('.csv', '-' + Date.now() + '.csv');
 			else 
-				downloadName = './' + process.env.DOWNLOAD_DIR + '/' + fileName;
+				downloadName = '/tmp/' + fileName;
 			
 			await client.downloadTo(downloadName, fileName);
+
 			return downloadName;
 		}
 		catch(err) {
@@ -29,5 +39,3 @@ class FTPClient {
 		client.close();
 	}
 }
-
-module.exports = FTPClient;
