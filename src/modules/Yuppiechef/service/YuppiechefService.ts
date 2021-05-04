@@ -10,6 +10,7 @@ export default class Yuppiechef {
 
         // currently Yuppieshef stock should reflect: onHand - SalesOrders - 3
         product.yuppieStockQty = product.onHand - product.salesOrder - 3;
+        if(product.yuppieStockQty < 0) product.yuppieStockQty = 0;
     });
     // field mapping
     const fields = [
