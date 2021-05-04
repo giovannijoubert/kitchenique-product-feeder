@@ -5,6 +5,15 @@ import routes from './routes';
 
 const app = express();
 
+app.use(function (req, res, next) {
+   console.log(req.query.token);
+   if(req.query.token !== process.env.BASIC_API_SECRET) {
+      res.json('Unauthorized');
+      return;
+    }
+   next()
+});
+
 app.use(express.json());
 app.use(routes);
 

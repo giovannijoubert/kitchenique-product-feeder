@@ -3,18 +3,20 @@ export default class Product {
   public description: string;
   public barcode: string;
   public sellPrice1: number;
-  public sellPrice3: number;
+  public sellPrice4: number;
   public onHand: number;
-  public webItem: boolean;
+  public salesOrder: number;
+  public incoterms: string;
 
   constructor() {
     this.code = null;
     this.description = null;
     this.barcode = null;
     this.sellPrice1 = null;
-    this.sellPrice3 = null;
+    this.sellPrice4 = null;
     this.onHand = null;
-    this.webItem = null;
+    this.salesOrder = null;
+    this.incoterms = null;
   }
 
   fill(newFields): void {

@@ -14,6 +14,7 @@ provider:
     IQ_FTP_HOST: kitchenique.co.za
     IQ_FTP_USER: iq@kitchenique.co.za
     IQ_FTP_PASS: ${env:IQ_FTP_PASS} 
+    BASIC_API_SECRET: ${env:BASIC_API_SECRET}
 
 functions:
   app:

@@ -2,6 +2,7 @@ import FTPClient from '../../FTPClient/service/ftpClientService';
 import IQRetail from '../service/IQRetailService';
 
 export default function getProducts(req, res): void {
+ 
     let ftp = new FTPClient();
     let iq = new IQRetail();
 
