@@ -3,7 +3,7 @@ export default class Yuppiechef {
   constructor() {}
 
   getProductDataFile(products) {
-    let selectedProducts = products.filter(i => i.incoterms === 'YUPPIECHEFTRUE');
+    let selectedProducts = products.filter(i => i.model === 'YUPPIECHEF TRUE');
     // Yuppiechef wants ' prepended to the stock code
     selectedProducts.forEach((product) => {
         product.code = "'" + product.code;
@@ -50,7 +50,7 @@ export default class Yuppiechef {
   getProductPriceFile(products) {
 
 
-    let selectedProducts = products.filter(i =>  i.incoterms === 'YUPPIECHEFTRUE');
+    let selectedProducts = products.filter(i =>  i.model === 'YUPPIECHEF TRUE');
     // Yuppiechef wants ' prepended to the stock code
     selectedProducts.forEach((product) => {
         product.code = "'" + product.code;

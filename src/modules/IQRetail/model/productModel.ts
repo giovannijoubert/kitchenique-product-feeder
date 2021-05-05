@@ -6,7 +6,7 @@ export default class Product {
   public sellPrice4: number;
   public onHand: number;
   public salesOrder: number;
-  public incoterms: string;
+  public model: string;
 
   constructor() {
     this.code = null;
@@ -16,7 +16,7 @@ export default class Product {
     this.sellPrice4 = null;
     this.onHand = null;
     this.salesOrder = null;
-    this.incoterms = null;
+    this.model = null;
   }
 
   fill(newFields): void {
